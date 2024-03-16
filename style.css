@@ -1,0 +1,265 @@
+body, h1, h2, p, ul, li, form, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 10px 20px;
+    text-align: center; /* Center align text */
+}
+
+#reservation-box {
+    margin-left: 20px;
+}
+
+#reviews-box {
+    margin-left: 20px;
+}
+
+.box-heading {
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+#map-box {
+    flex-basis: 100%;
+}
+
+#map-box img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Add styles for form fields and button */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+    width: calc(100% - 22px); /* Adjust for input padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add styles for form validation */
+input:invalid {
+    border-color: #dc3545;
+}
+
+input:valid {
+    border-color: #28a745;
+}
+
+input:invalid + .error-message {
+    display: block;
+    color: #dc3545;
+    font-size: 14px;
+}
+
+.error-message {
+    display: none;
+}
+
+/* Adjust layout for larger screens */
+@media screen and (min-width: 768px) {
+    main {
+        display: flex;
+    }
+
+    #reservation-box {
+        order: 2;
+        flex: 1;
+        margin-left: 0;
+    }
+
+    #reviews-box {
+        order: 3;
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    #map-box {
+        margin-top: 20px; /* Adjust margin as needed */
+    }
+    
+    #map-box img {
+        width: 100%; /* Ensure the map image fills the container */
+        border-radius: 8px;
+    }
+    
+}
+
+/* Add animation styles for review boxes */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-25%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.review-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+}
+
+.show-review {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInFromTop 0.5s ease forwards;
+}
+
+.stars {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stars img {
+    width: 20px; /* Adjust size of star images */
+}
+
+.text {
+    font-size: 14px;
+}
+/* Add your CSS styles here */
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Maintain aspect ratio of the map */
+    overflow: hidden;
+}
+
+.parking-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.box-heading {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
