@@ -13,71 +13,36 @@
             <span>Unparked</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>   
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
     </nav>
 
     <header id="home">
-        <h1 style="color: black;">Welcome to Unparked</h1>
-        <p style="color: black;">Your go-to platform for hassle-free parking solutions.</p>
+        <div class="header-text">
+            <h1 style="color: black;">Welcome to Unparked</h1>
+            <p style="color: black;">Your go-to platform for hassle-free parking solutions.</p>
+        </div>
     </header>
 
     <main>
-        <section id="about" class="container">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae velit nec ligula lacinia luctus.</p>
-        </section>
-
-        <section id="services" class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-box">
-                    <img src="images/image.png" alt="Service Image">
-                    <h3>Service 1</h3>
-                    <p>Description of Service 1.</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/image.png" alt="Service Image">
-                    <h3>Service 2</h3>
-                    <p>Description of Service 2.</p>
-                </div>
-                <div class="service-box">
-                    <img src="images/image.png" alt="Service Image">
-                    <h3>Service 3</h3>
-                    <p>Description of Service 3.</p>
+        <div class="box-container">
+            <div class="box">
+                <div class="text-box">
+                    <h2>Parking Spaces</h2>
+                    <p>This is where the text about parking spaces goes.</p>
                 </div>
             </div>
-        </section>
-
-        <section id="reviews" class="container">
-            <h2>Customer Reviews</h2>
-            <div class="reviews-slider">
-                <!-- Reviews will be dynamically added by JavaScript -->
+            <div class="button-container">
+                <div class="button-box">
+                    <button>Sign Up</button>
+                    <button>Sign In</button>
+                </div>
             </div>
-        </section>
-
-        <section id="contact" class="container">
-            <h2>Contact Us</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
+        </div>
+    </main>    
 
     <footer>
         <p>&copy; 2024 Unparked. All rights reserved.</p>

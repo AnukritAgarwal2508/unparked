@@ -12,7 +12,7 @@ body {
 }
 
 nav {
-    background-color: #222;
+    background-color: #000;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -70,16 +70,22 @@ h1 {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted width of service boxes */
     gap: 20px;
 }
 
 .service-box {
-    padding: 20px;
+    padding: 30px; /* Increased padding for larger boxes */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.service-box:hover {
+    transform: translateY(-10px); /* Move box up on hover */
 }
 
 .services-grid img {
