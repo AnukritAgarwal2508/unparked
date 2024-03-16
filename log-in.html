@@ -12,19 +12,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: black;
+      background: linear-gradient(to bottom, #36228e, #4e54c8);
+      font-family: Arial, sans-serif;
     }
 
     .container {
       width: 300px;
       padding: 20px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 8px;
       text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
-      color: #fff;
+      color: #7c4dff;
+      margin-bottom: 20px;
     }
 
     input, button {
@@ -35,17 +38,19 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 16px;
+      box-sizing: border-box; /* Added */
     }
 
     button {
-      background-color: #007bff;
+      background-color: #7c4dff;
       color: #fff;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #5a36b1;
     }
 
     a {
@@ -56,11 +61,15 @@
     a:hover {
       text-decoration: underline;
     }
+
+    ::placeholder {
+      color: #aaa; /* Placeholder color */
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 style="color: black;">Log In</h1>
+    <h1>Log In</h1>
     <!-- Log-in form -->
     <form id="logInForm">
       <!-- Form fields -->

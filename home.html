@@ -12,40 +12,47 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: black;
+      background: linear-gradient(to bottom, #36228e, #4e54c8);
     }
 
     .container {
       width: 300px;
       padding: 20px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 8px;
       text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
-      color: #fff;
+      color: #000000;
+      margin-bottom: 35px;
+      margin-top: auto;
     }
 
     img {
-      width: 100px; /* Adjust width as needed */
-      margin-bottom: 20px; /* Add some space below the image */
+      width: 150px; /* Adjust width as needed */
+       /* Add some space below the image */
+    }
+
+    .btn-container {
+      margin-top: 20px;
     }
 
     button {
-      display: block;
-      width: calc(100% - 20px);
-      margin: 10px auto;
+      width: 140px;
       padding: 10px;
-      background-color: #007bff;
+      background-color: #7c4dff; /* Darkened purple */
       color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s; /* Added transform */
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #5a36b1; /* Darkened hover color */
+      transform: translateY(-5px); /* Added */
     }
 
     a {
@@ -56,14 +63,31 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Animation */
+    .parking-icon {
+      width: 50px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: parkingAnimation 1s infinite alternate; /* Added */
+    }
+
+    @keyframes parkingAnimation {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="images/Unparked_Logo.jpg" alt="Company Logo">
-    <button onclick="location.href='sign-up.html'">Sign Up</button>
-    <button onclick="location.href='log-in.html'">Log In</button>
+    <img class="parking-icon" src="images/image-removebg-preview.png" alt="Parking Icon">
+    <h1>Unparked</h1>
+    <div class="btn-container">
+      <button onclick="location.href='sign-up.html'">Sign Up</button>
+      <button onclick="location.href='log-in.html'">Log In</button>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
+
