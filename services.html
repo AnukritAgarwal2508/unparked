@@ -96,6 +96,7 @@
             transition: transform 0.3s ease; /* Smooth transition for hover effect */
             cursor: pointer; /* Change cursor to pointer on hover */
             margin-bottom: 30px;
+            position: relative; /* Added position relative */
         }
 
         .service-box:hover {
@@ -108,6 +109,15 @@
             max-width: 150px; /* Adjust max-width as needed */
             border-radius: 50%;
             margin-bottom: 15px;
+        }
+
+        /* Customers and Business link styles */
+        .customers-business-link {
+            position: absolute;
+            bottom: -30px; /* Adjust as needed for positioning */
+            left: 50%; /* Align with the line of symmetry */
+            transform: translateX(-50%); /* Center horizontally */
+            text-decoration: underline;
         }
 
         /* Footer styles */
@@ -151,10 +161,12 @@
         <nav class="right-header">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="#" onclick="loadService1()">Service 1</a></li> <!-- Updated hyperlink with onclick event -->
+                <li><a href="#" onclick="loadService2()">Service 2</a></li> <!-- Updated hyperlink with onclick event -->
+                <li><a href="ev.html">Service 3</a></li> <!-- Updated Service 3 link -->
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
-                <li><a href="upload.html">Upload</a></li> <!-- Link to upload.html -->
+                <li><a href="upload.html">Upload</a></li>
             </ul>
         </nav>
     </header>
@@ -163,13 +175,23 @@
             <div class="service-box" style="background-color: #ffdd9d;">
                 <img src="images/user.jpg" alt="For Customers">
                 <h2 style="font-size: 20px;">Service 1</h2>
-                <p>Description of service 1 goes here.</p>
+                <p>Parking solutions for consumers</p> <!-- Updated text for Service 1 -->
+                <p class="customers-business-link"><a href="service1.html" style="color: inherit;">Customers</a></p> <!-- Underlined Customers link -->
             </div>
-            <div class="service-box" style="background-color: #b3ffb3;">
+            <div class="service-box" style="background-color: #b3ffb3; margin-bottom: 40px;"> <!-- Added margin-bottom for separation -->
                 <a href="upload.html" style="text-decoration: none; color: inherit;">
                     <img src="images/corp.jpg" alt="For Corporations">
                     <h2 style="font-size: 20px;">Service 2</h2>
-                    <p>Description of service 2 goes here.</p>
+                    <p>Parking solutions for enterprises</p> <!-- Updated text for Service 2 -->
+                    <p class="customers-business-link"><a href="upload.html" style="color: inherit;">Business</a></p> <!-- Underlined Business link -->
+                </a>
+            </div>
+            <div class="service-box" style="background-color: #007bff;"> <!-- Service 3 box with blue background -->
+                <a href="ev.html" style="text-decoration: none; color: inherit;">
+                    <img src="images\electric-car-charging-symbol-v3-product-0.jpg" alt="EV" style="width: 80%; max-width: 150px; border-radius: 50%;">
+                    <h2 style="font-size: 20px;">Service 3</h2>
+                    <p>Parking solutions for EV owners</p> <!-- Updated text for Service 3 -->
+                    <p class="customers-business-link"><a href="ev.html" style="color: inherit;">EV</a></p> <!-- Underlined EV link -->
                 </a>
             </div>
         </div>
@@ -177,6 +199,21 @@
     <footer>
         <p>&copy; 2024 Unparked. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript to load Service 1, Service 2, and Service 3 content -->
+    <script>
+        function loadService1() {
+            window.location.href = 'service1.html';
+        }
+
+        function loadService2() {
+            window.location.href = 'upload.html';
+        }
+
+        function loadService3() {
+            window.location.href = 'ev.html';
+        }
+    </script>
 </body>
 
 </html>
