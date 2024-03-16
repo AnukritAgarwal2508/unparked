@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Your Website Title</title>
+    <title>Unparked</title>
     <style>
         /* Your existing styles */
         .button-box {
@@ -17,7 +17,125 @@
         .button-box button {
             margin-bottom: 10px; /* Add space between buttons */
         }
+
+        /* Styling for the map */
+        #map {
+            width: 100%; /* Set the map width */
+            min-height: 540px; /* Set the minimum map height */
+            margin: 0 auto; /* Center the map horizontally */
+            display: block; /* Ensure block display for centering */
+            border: 1px solid #ccc; /* Add a border for visual separation */
+        }
+
+        /* Styling for the search bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .search-container input[type=text] {
+            width: 50%;
+            padding: 8px;
+            margin-right: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 15px;
+        }
+
+        /* Updated header styles */
+        header {
+            text-align: center;
+            padding: 100px 0;
+            background-color: #f9f9f9; /* Background color */
+            color: #333;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        /* Styling for the main container */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box {
+            width: calc(50% - 20px); /* Set box width */
+            padding: 20px;
+            background-color: #fff; /* White background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+            border-radius: 8px; /* Add border radius */
+        }
+
+        .box h2 {
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            margin-bottom: 20px;
+        }
+
+        /* Updated navigation styles */
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        /* Styling for the Sign Up and Sign In buttons */
+        .nav-buttons {
+            display: flex;
+        }
+
+        .nav-buttons button {
+            margin-right: 10px;
+            background-color: #fff; /* White background */
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #f0f0f0; /* Hover background color */
+        }
+
+        /* Styling for the logo and text */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px; /* Adjust logo size */
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            font-size: 20px;
+        }
     </style>
+    <!-- Leaflet and Folium JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/folium/0.11.0-rc1/folium.min.js"></script>
 </head>
 <body>
     <nav>
@@ -30,28 +148,38 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact_us.html">Contact Us</a></li>
+            <li class="nav-buttons">
+                <button onclick="window.location.href='sign-up.html'">Sign Up</button>
+                <button onclick="window.location.href='signin.html'">Sign In</button>
+            </li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="header-text">
-            <h1 style="color: black;">Welcome to Unparked</h1>
-            <p style="color: black;">Your go-to platform for hassle-free parking solutions.</p>
+            <h1>Welcome to Unparked</h1>
+            <p>Your go-to platform for hassle-free parking solutions.</p>
         </div>
     </header>
 
     <main>
-        <div class="box-container">
+        <div class="main-container">
             <div class="box">
                 <div class="text-box">
                     <h2>Parking Spaces</h2>
                     <p>This is where the text about parking spaces goes.</p>
+                    <!-- Search bar -->
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Enter location">
+                        <button id="searchBtn">Search</button>
+                    </div>
                 </div>
             </div>
-            <div class="button-container">
-                <div class="button-box">
-                    <button onclick="window.location.href='sign-up.html'">Sign Up</button>
-                    <button onclick="window.location.href='signin.html'">Sign In</button>
+            <div class="box">
+                <div class="text-box">
+                    <h2>Map</h2>
+                    <!-- Map container -->
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
@@ -62,5 +190,39 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); // Set initial coordinates and zoom level
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        function searchAndPin(location) {
+            map.eachLayer(function (layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            L.marker(location).addTo(map);
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            var searchInput = document.getElementById('searchInput').value;
+
+            fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + searchInput)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        var location = [data[0].lat, data[0].lon];
+                        map.setView(location, 15);
+                        searchAndPin(location);
+                    } else {
+                        alert('Location not found.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
