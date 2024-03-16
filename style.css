@@ -12,7 +12,7 @@ body {
 }
 
 nav {
-    background-color: #000;
+    background-color: #222;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -23,6 +23,11 @@ nav {
 .logo img {
     width: 40px;
     margin-right: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logo:hover img {
+    transform: scale(1.2); /* Increase size on hover */
 }
 
 .logo span {
@@ -60,6 +65,7 @@ header {
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: #000; /* Text color set to black */
 }
 
 .container {
@@ -68,90 +74,55 @@ h1 {
     padding: 20px;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted width of service boxes */
-    gap: 20px;
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
 }
 
-.service-box {
-    padding: 30px; /* Increased padding for larger boxes */
+.box {
+    width: 75%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.text-box {
     text-align: center;
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    color: #000; /* Text color set to black */
 }
 
-.service-box:hover {
-    transform: translateY(-10px); /* Move box up on hover */
+.button-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.services-grid img {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-.reviews-slider {
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-}
-
-.review-box {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 10px;
+.button-box {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
 }
 
-.review-box img {
-    width: 15px;
-    margin-right: 5px;
-}
-
-.text {
-    font-size: 14px;
-    color: #555;
-}
-
-form {
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #7F2CCB;
-    color: #fff;
+.button-box button {
+    background-color: #fff;
+    color: #000;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #6A24A8;
+.button-box button:hover {
+    background-color: #7F2CCB;
+    color: #fff;
 }
 
 footer {
