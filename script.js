@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Function to generate a random star rating (between 4 and 5 stars)
     function generateRandomStars() {
         return (Math.random() * (5 - 4) + 4).toFixed(1);
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewBox.classList.add('review-box');
         reviewBox.innerHTML = `
             <div class="stars">
-                ${Array.from({ length: Math.floor(review.stars) }, (_, index) => 
-                    '<img src="review_star.png" alt="Filled Star">'
+                ${Array.from({ length: Math.floor(review.stars) }, (_, index) =>
+                    '<img src="images/review_star.png" alt="Filled Star" style="width: 15px">'
                 ).join('')}
             </div>
             <div class="text">${review.text}</div>
@@ -52,4 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call displayReviews to show reviews with animation
     displayReviews();
+
+    // Smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
 });

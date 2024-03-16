@@ -1,74 +1,18 @@
-/* Global styles */
-body, html {
+/* Resetting default styles */
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-/* Common container styles */
-.container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-input, button {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    background-color: #007bff; /* Blue button color */
-    color: #ffffff; /* White text color */
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker blue hover color */
-}
-
-a {
-    color: #007bff; /* Blue link color */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Home page styles */
-.home-container {
-    background-color: #000; /* Black background color */
-    color: #fff; /* White text color */
-    padding: 20px;
-}
-
-/* Sign-up and Log-in page styles */
-.sign-container,
-.log-container {
-    background-color: #000; /* Black background color */
-    color: #fff; /* White text color */
-    padding: 20px;
-}
-
-/* Additional styles specific to the parking app theme */
 nav {
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     padding: 10px 20px;
     display: flex;
@@ -76,14 +20,14 @@ nav {
     align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.logo img {
+    width: 40px;
+    margin-right: 10px;
 }
 
-.logo img {
-    width: 30px;
-    margin-right: 10px;
+.logo span {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .nav-links {
@@ -98,70 +42,80 @@ nav {
 .nav-links a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+    color: #7F2CCB;
 }
 
 header {
     text-align: center;
-    margin-top: 20px;
+    padding: 100px 0;
+    background-image: url('images/Wkipedia_blank_world_map.jpg');
+    background-size: cover;
+    color: #fff;
 }
 
 h1 {
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.box {
-    flex: 1;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-box {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 10px 20px;
-    text-align: center; /* Center align text */
-}
-
-#reservation-box {
-    margin-left: 20px;
-}
-
-#reviews-box {
-    margin-left: 20px;
-}
-
-.box-heading {
-    margin-bottom: 20px; /* Add some space below the heading */
-}
-
-#map-box {
-    flex-basis: 100%;
-}
-
-#map-box img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
     text-align: center;
-    z-index: 1;
 }
 
-/* Add styles for form fields and button */
+.services-grid img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.reviews-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.review-box {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-box img {
+    width: 15px;
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 14px;
+    color: #555;
+}
+
+form {
+    margin-top: 20px;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -171,18 +125,16 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="date"],
-input[type="time"],
-input[type="number"] {
-    width: calc(100% - 22px); /* Adjust for input padding and border */
+input,
+textarea {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-button[type="submit"] {
-    background-color: #007bff;
+button {
+    background-color: #7F2CCB;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -192,280 +144,13 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #6A24A8;
 }
 
-/* Add styles for form validation */
-input:invalid {
-    border-color: #dc3545;
-}
-
-input:valid {
-    border-color: #28a745;
-}
-
-input:invalid + .error-message {
-    display: block;
-    color: #dc3545;
-    font-size: 14px;
-}
-
-.error-message {
-    display: none;
-}
-
-/* Adjust layout for larger screens */
-@media screen and (min-width: 768px) {
-    main {
-        display: flex;
-    }
-
-    #reservation-box {
-        order: 2;
-        flex: 1;
-        margin-left: 0;
-    }
-
-    #reviews-box {
-        order: 3;
-        flex: 1;
-        margin-left: 20px;
-    }
-
-    #map-box {
-        margin-top: 20px; /* Adjust margin as needed */
-    }
-    
-    #map-box img {
-        width: 100%; /* Ensure the map image fills the container */
-        border-radius: 8px;
-    }
-    
-}
-
-/* Add animation styles for review boxes */
-@keyframes slideInFromTop {
-    from {
-        transform: translateY(-25%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.review-box {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-}
-
-.show-review {
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideInFromTop 0.5s ease forwards;
-}
-
-.stars {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.stars img {
-    width: 20px; /* Adjust size of star images */
-}
-
-.text {
-    font-size: 14px;
-}
-/* Add your CSS styles here */
-.map-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 75%; /* Maintain aspect ratio of the map */
-    overflow: hidden;
-}
-
-.parking-map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.box {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-.box-heading {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-}
-
-/* Add your CSS styles here */
-.map-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 75%; /* Maintain aspect ratio of the map */
-    overflow: hidden;
-}
-
-.parking-map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.box {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-.box-heading {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-}
-
-/* Adjust layout for larger screens */
-@media screen and (min-width: 768px) {
-    main {
-        display: flex;
-    }
-
-    #reservation-box {
-        order: 2;
-        flex: 1;
-        margin-left: 0;
-    }
-
-    #reviews-box {
-        order: 3;
-        flex: 1;
-        margin-left: 20px;
-    }
-
-    #map-box {
-        margin-top: 20px; /* Adjust margin as needed */
-    }
-    
-    #map-box img {
-        width: 100%; /* Ensure the map image fills the container */
-        border-radius: 8px;
-    }
-    
-}
-
-/* Add animation styles for review boxes */
-@keyframes slideInFromTop {
-    from {
-        transform: translateY(-25%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.review-box {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-}
-
-.show-review {
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideInFromTop 0.5s ease forwards;
-}
-
-.stars {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.stars img {
-    width: 20px; /* Adjust size of star images */
-}
-
-.text {
-    font-size: 14px;
-}
-/* Add your CSS styles here */
-.map-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 75%; /* Maintain aspect ratio of the map */
-    overflow: hidden;
-}
-
-.parking-map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.box {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-.box-heading {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
 }
