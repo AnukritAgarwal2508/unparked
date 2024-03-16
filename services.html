@@ -77,77 +77,62 @@
             text-decoration: underline;
         }
 
-        /* Contact Us page styles */
-        .contact-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form {
+        /* Container styles */
+        .container {
             display: flex;
-            flex-direction: column;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .form-group textarea {
-            height: 150px;
-        }
-
-        .form-group input[type="submit"] {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .form-group input[type="submit"]:hover {
-            background-color: #333;
-        }
-
-        /* Box below contact form */
-        .random-info-box {
-            background-color: #fff;
+            justify-content: space-around;
+            align-items: center;
             padding: 20px;
-            margin-top: 20px;
+        }
+
+        .service-box {
+            width: 40%; /* Adjust width as needed */
+            padding: 15px; /* Adjust padding as needed */
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            animation: slideUp 1s ease forwards;
-            opacity: 0;
+            text-align: center;
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            margin-bottom: 30px;
         }
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(50%);
-                opacity: 0;
+        .service-box:hover {
+            transform: translateY(-5px); /* Move box up on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        .service-box img {
+            width: 80%;
+            max-width: 150px; /* Adjust max-width as needed */
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+
+            .service-box {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .service-box img {
+                max-width: 100%;
             }
         }
     </style>
@@ -159,7 +144,7 @@
             <span class="unparked-text">Unparked</span>
         </div>
         <div class="mid-header">
-            <span class="about-text">Services offered</span>
+            <span class="about-text">Services</span>
         </div>
         <nav class="right-header">
             <ul class="nav-links">
@@ -172,20 +157,15 @@
     </header>
     <main>
         <div class="container">
-            <div class="service-box">
-                <img src="images/service1.jpg" alt="Service 1">
-                <h2>Service 1</h2>
+            <div class="service-box" style="background-color: #ffdd9d;">
+                <img src="images/user.jpg" alt="For Customers">
+                <h2 style="font-size: 20px;">Service 1</h2>
                 <p>Description of service 1 goes here.</p>
             </div>
-            <div class="service-box">
-                <img src="images/service2.jpg" alt="Service 2">
-                <h2>Service 2</h2>
+            <div class="service-box" style="background-color: #b3ffb3;">
+                <img src="images/corp.jpg" alt="For Corporations">
+                <h2 style="font-size: 20px;">Service 2</h2>
                 <p>Description of service 2 goes here.</p>
-            </div>
-            <div class="service-box">
-                <img src="images/service3.jpg" alt="Service 3">
-                <h2>Service 3</h2>
-                <p>Description of service 3 goes here.</p>
             </div>
         </div>
     </main>
